@@ -29,7 +29,7 @@ def query(request, pronounceQ):
         if(tmp > 0.6):
             theRank[singlePronounce.pronounce] = tmp
     '''
-    theRank = similar.delay(allPronounce, pronounceQ)
+    theRank = similar(allPronounce, pronounceQ)
 
     # sorting ranking and append result to theAnswer
     for theKey, theSimilarity in sorted(theRank.iteritems(), key = lambda (k, v) : (v, k), reverse=True):
